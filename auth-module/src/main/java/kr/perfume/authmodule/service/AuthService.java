@@ -1,6 +1,6 @@
 package kr.perfume.authmodule.service;
 
-import kr.perfume.authmodule.auth.ProviderType;
+import kr.perfume.commonmodule.enums.ProviderType;
 import kr.perfume.authmodule.auth.userInfo.OAuth2UserInfo;
 import kr.perfume.authmodule.auth.verify.GoogleVerifier;
 import lombok.RequiredArgsConstructor;

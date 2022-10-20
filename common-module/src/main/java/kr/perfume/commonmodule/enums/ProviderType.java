@@ -1,4 +1,4 @@
-package kr.perfume.authmodule.auth;
+package kr.perfume.commonmodule.enums;
 
 import java.util.Arrays;
 
