@@ -1,5 +1,6 @@
 package kr.perfume.authmodule.contorller;
 
+import kr.perfume.authmodule.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

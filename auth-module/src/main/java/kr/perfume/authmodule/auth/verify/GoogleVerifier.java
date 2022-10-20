@@ -1,14 +1,16 @@
 package kr.perfume.authmodule.auth.verify;
 
-import com.fasterxml.jackson.core.JsonFactory;
+
+import com.google.api.client.json.JsonFactory;
+import com.google.api.client.json.gson.GsonFactory;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
 import com.google.api.client.http.javanet.NetHttpTransport;
-import com.google.api.client.json.JsonFactory;
-import com.google.api.client.json.gson.GsonFactory;
+
+import kr.perfume.authmodule.auth.userInfo.GoogleOAuth2UserInfo;
 import kr.perfume.authmodule.auth.userInfo.OAuth2UserInfo;
-import kr.service.okr.user.oauth.info.OAuth2UserInfo;
-import kr.service.okr.user.oauth.info.impl.GoogleOAuth2UserInfo;
+import lombok.RequiredArgsConstructor;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
+@RequiredArgsConstructor
 public class GoogleVerifier implements TokenVerifierFactory {
     @Value("${google.clientId}")
     private String clientId;

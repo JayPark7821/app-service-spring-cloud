@@ -1,7 +1,6 @@
 package kr.perfume.authmodule.auth.verify;
 
 import kr.perfume.authmodule.auth.userInfo.OAuth2UserInfo;
-import kr.service.okr.user.oauth.info.OAuth2UserInfo;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
