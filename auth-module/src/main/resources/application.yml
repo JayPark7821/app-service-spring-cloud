@@ -29,6 +29,8 @@ spring:
     username: sa
     password:
 
+
+
 management:
   endpoints:
     web:

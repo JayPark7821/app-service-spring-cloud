@@ -9,6 +9,8 @@ import com.google.api.client.http.javanet.NetHttpTransport;
 
 import kr.perfume.authmodule.auth.userInfo.GoogleOAuth2UserInfo;
 import kr.perfume.authmodule.auth.userInfo.OAuth2UserInfo;
+import kr.perfume.commonmodule.enums.ErrorCode;
+import kr.perfume.commonmodule.exception.PerfumeApplicationException;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -40,9 +42,9 @@ public class GoogleVerifier implements TokenVerifierFactory {
         try {
             idToken = verifier.verify(token);
         } catch (GeneralSecurityException e) {
-            throw new RuntimeException(e);
+            throw new PerfumeApplicationException(ErrorCode.INVALID_ID_TOKEN);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new PerfumeApplicationException(ErrorCode.INTERNAL_SERVER_ERROR);
         }
         if (idToken != null) {
             GoogleIdToken.Payload payload = idToken.getPayload();
@@ -54,7 +56,7 @@ public class GoogleVerifier implements TokenVerifierFactory {
             return new GoogleOAuth2UserInfo(attributes);
 
         } else {
-            throw new IllegalArgumentException("Invalid ID token");
+            throw new PerfumeApplicationException(ErrorCode.INVALID_ID_TOKEN);
         }
     }
 }

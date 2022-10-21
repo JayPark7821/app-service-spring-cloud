@@ -9,7 +9,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ProviderType {
 	GOOGLE("GOOGLE","google"),
-	APPLE("APPLE","apple");
+	APPLE("APPLE","apple"),
+	LOCAL("LOCAL","local");
 
 	private final String code;
 	private final String displayName;

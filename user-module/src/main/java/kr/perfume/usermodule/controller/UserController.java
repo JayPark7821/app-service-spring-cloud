@@ -1,5 +1,6 @@
 package kr.perfume.usermodule.controller;
 
+import kr.perfume.commonmodule.dto.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +19,9 @@ public class UserController {
 
 	private final UserService userService;
 
-	@GetMapping("/user/{userId}")
-	public ResponseEntity<UserResponseDto> getUser(@PathVariable("userId") Long userId) {
+	@GetMapping("/user/{email}")
+	public ResponseEntity<ApiResponse<UserResponseDto>> getUserByEmail(@PathVariable("email") String email) {
 		return ResponseEntity.status(HttpStatus.OK)
-			.body(userService.getUser(userId));
+			.body(ApiResponse.success(userService.getUserByEmail(email)));
 	}
 }
