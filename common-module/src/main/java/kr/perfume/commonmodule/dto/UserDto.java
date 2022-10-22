@@ -1,4 +1,4 @@
-package kr.perfume.commonmodule.dto.response;
+package kr.perfume.commonmodule.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class UserResponseDto {
+public class UserDto {
 
 	private Long userSeq;
 	private String email;
@@ -21,7 +21,7 @@ public class UserResponseDto {
 	private String profileImage;
 
 	@Builder
-	public UserResponseDto(Long userSeq, String email, String name, ProviderType providerType, RoleType roleType, String profileImage) {
+	public UserDto(Long userSeq, String email, String name, ProviderType providerType, RoleType roleType, String profileImage) {
 		this.userSeq = userSeq;
 		this.email = email;
 		this.name = name;

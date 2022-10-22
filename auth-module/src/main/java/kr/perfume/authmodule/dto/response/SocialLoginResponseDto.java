@@ -1,7 +1,7 @@
 package kr.perfume.authmodule.dto.response;
 
 import kr.perfume.authmodule.entity.PreJoinUser;
-import kr.perfume.commonmodule.dto.response.UserResponseDto;
+import kr.perfume.commonmodule.dto.UserDto;
 import kr.perfume.commonmodule.enums.ProviderType;
 import kr.perfume.commonmodule.enums.RoleType;
 import lombok.Builder;
@@ -22,7 +22,7 @@ public class SocialLoginResponseDto {
     private String refreshToken;
 
     @Builder
-    public SocialLoginResponseDto(UserResponseDto user, String accessToken, String refreshToken) {
+    public SocialLoginResponseDto(UserDto user, String accessToken, String refreshToken) {
         this.email = user.getEmail();
         this.name = user.getName();
         this.profileImage = user.getProfileImage();

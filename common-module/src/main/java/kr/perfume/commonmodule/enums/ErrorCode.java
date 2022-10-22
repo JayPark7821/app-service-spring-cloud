@@ -12,7 +12,9 @@ public enum ErrorCode {
     JOINING_PROCESS_ON_GOING(HttpStatus.BAD_REQUEST, "이미 회원가입이 진행중인 유저 입니다."),
     INVALID_ID_TOKEN(HttpStatus.UNAUTHORIZED, "Invalid IdToken" ),
     NOT_AVAILABLE_YET(HttpStatus.BAD_REQUEST,"Not available yet" ),
-    INVALID_PROVIDER_TYPE(HttpStatus.BAD_REQUEST,"Invalid Provider Type" );
+    INVALID_PROVIDER_TYPE(HttpStatus.BAD_REQUEST,"Invalid Provider Type" ),
+    USER_ALREADY_JOINED(HttpStatus.NOT_ACCEPTABLE,"이미 가입된 회원입니다." ),
+    INVALID_JOIN_DATA(HttpStatus.BAD_REQUEST,"잘못된 가입정보 입니다." );
 
 
     private HttpStatus status;

@@ -20,20 +20,20 @@ public class PreJoinUserRedisRepository {
 
 
     public PreJoinUser savePreJoinUser(PreJoinUser user) {
-        String key = getKey(user.getUsername());
+        String key = getKey(user.getUserId());
         log.info("Set PreJoinUser to Redis {} = {} ", key, user);
         preJoinUserRedisTemplate.opsForValue().setIfAbsent(key, user);
         return user;
     }
 
-    public Optional<PreJoinUser> getUserByEmail(String email) {
-        String key = getKey(email);
+    public Optional<PreJoinUser> getUserByEmail(String userId) {
+        String key = getKey(userId);
         PreJoinUser user = preJoinUserRedisTemplate.opsForValue().get(key);
         log.info("Get data from Redis {} = {} ", key, user);
         return Optional.ofNullable(user);
     }
 
-    private String getKey(String email) {
-        return "USER:" + email;
+    private String getKey(String userId) {
+        return "USER:" + userId;
     }
 }
