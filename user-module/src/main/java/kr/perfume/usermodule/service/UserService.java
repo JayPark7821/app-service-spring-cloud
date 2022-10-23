@@ -1,12 +1,10 @@
 package kr.perfume.usermodule.service;
 
-import kr.perfume.commonmodule.exception.PerfumeApplicationException;
-import kr.perfume.usermodule.entity.User;
-import org.springframework.http.HttpStatus;
+import kr.perfume.commonmodule.dto.UserDto;
+import kr.perfume.commonmodule.entity.user.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import kr.perfume.commonmodule.dto.response.UserResponseDto;
 import kr.perfume.usermodule.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 
@@ -19,9 +17,14 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    public UserResponseDto getUserByEmail(String email) {
+    public UserDto getUserByEmail(String email) {
         Optional<User> user = userRepository.findByEmail(email);
         return user.map(User::toDto).orElse(null);
     }
 
+    public Long join(UserDto user) {
+        User userEntity = user.toEntity();
+        User savedUser = userRepository.saveAndFlush(userEntity);
+        return savedUser.getUserSeq();
+    }
 }

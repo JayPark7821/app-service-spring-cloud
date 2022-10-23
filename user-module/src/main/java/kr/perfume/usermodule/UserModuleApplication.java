@@ -7,7 +7,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication(scanBasePackages = {"kr.perfume.usermodule", "kr.perfume.commonmodule"})
-//@EntityScan("kr.perfume.commonmodule.entity")
+@EntityScan("kr.perfume.commonmodule.entity.user")
 @EnableDiscoveryClient
 @EnableFeignClients
 public class UserModuleApplication {

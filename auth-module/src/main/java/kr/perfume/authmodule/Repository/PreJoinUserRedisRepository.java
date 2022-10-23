@@ -20,7 +20,7 @@ public class PreJoinUserRedisRepository {
 
 
     public PreJoinUser savePreJoinUser(PreJoinUser user) {
-        String key = getKey(user.getUserId());
+        String key = getKey(user.getUserUuid());
         log.info("Set PreJoinUser to Redis {} = {} ", key, user);
         preJoinUserRedisTemplate.opsForValue().setIfAbsent(key, user);
         return user;

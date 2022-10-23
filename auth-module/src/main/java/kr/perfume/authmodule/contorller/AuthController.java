@@ -1,12 +1,13 @@
 package kr.perfume.authmodule.contorller;
 
 import kr.perfume.authmodule.dto.request.JoinRequestDto;
-import kr.perfume.authmodule.dto.response.SocialLoginResponseDto;
+import kr.perfume.commonmodule.dto.SocialLoginResponseDto;
 import kr.perfume.authmodule.service.AuthService;
 import kr.perfume.commonmodule.dto.ApiResponse;
 import kr.perfume.commonmodule.exception.PerfumeApplicationException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -21,27 +22,27 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
-import java.net.UnknownHostException;
-
 @Slf4j
 @RestController
 @RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
 public class AuthController {
 
-    private final AuthService authService;
+	private final AuthService authService;
 
-    @GetMapping("/login/{provider}/{idToken}")
-    public ResponseEntity<ApiResponse<SocialLoginResponseDto>> verifyIdToken(@PathVariable("provider") String providerType,
-                                                                             @PathVariable("idToken") String idToken,
-                                                                             HttpServletRequest request) {
+	@GetMapping("/login/{provider}/{idToken}")
+	public ResponseEntity<ApiResponse<SocialLoginResponseDto>> verifyIdToken(
+		@PathVariable("provider") String providerType,
+		@PathVariable("idToken") String idToken,
+		HttpServletRequest request) {
 
-        return ResponseEntity.status(HttpStatus.ACCEPTED)
-                .body(ApiResponse.success(authService.loginUserFromSocial(request, providerType, idToken)));
-    }
+		return ResponseEntity.status(HttpStatus.ACCEPTED)
+			.body(ApiResponse.success(authService.loginUserFromSocial(request, providerType, idToken)));
+	}
 
 	@PostMapping("/join")
-	public ResponseEntity<ApiResponse<Void>> join(@RequestBody @Valid JoinRequestDto requestDto, BindingResult bindingResult, HttpServletRequest request) {
+	public ResponseEntity<ApiResponse<SocialLoginResponseDto>> join(@RequestBody @Valid JoinRequestDto requestDto,
+		BindingResult bindingResult, HttpServletRequest request) {
 
 		if (bindingResult.hasErrors()) {
 			log.error("---------------------- JOIN USER BINDING ERROR --------------------------");
@@ -51,8 +52,5 @@ public class AuthController {
 		}
 		return ResponseEntity.status(HttpStatus.CREATED)
 			.body(ApiResponse.created(authService.join(requestDto, request)));
-
 	}
-
-
 }

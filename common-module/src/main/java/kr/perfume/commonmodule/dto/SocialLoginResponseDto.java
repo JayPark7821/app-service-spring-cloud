@@ -1,7 +1,5 @@
-package kr.perfume.authmodule.dto.response;
+package kr.perfume.commonmodule.dto;
 
-import kr.perfume.authmodule.entity.PreJoinUser;
-import kr.perfume.commonmodule.dto.UserDto;
 import kr.perfume.commonmodule.enums.ProviderType;
 import kr.perfume.commonmodule.enums.RoleType;
 import lombok.Builder;
@@ -21,7 +19,7 @@ public class SocialLoginResponseDto {
     private String accessToken;
     private String refreshToken;
 
-    @Builder
+
     public SocialLoginResponseDto(UserDto user, String accessToken, String refreshToken) {
         this.email = user.getEmail();
         this.name = user.getName();
@@ -32,12 +30,13 @@ public class SocialLoginResponseDto {
         this.refreshToken = refreshToken;
     }
 
-    public SocialLoginResponseDto(PreJoinUser preJoinUser) {
-        this.tempUserId = preJoinUser.getUserUuid();
-        this.email = preJoinUser.getEmail();
-        this.name = preJoinUser.getUsername();
-        this.profileImage = preJoinUser.getProfileImageUrl();
-        this.providerType = preJoinUser.getProviderType();
-    }
 
+    public SocialLoginResponseDto(String tempUserId, String email, String name, ProviderType providerType,
+        String profileImage ) {
+        this.tempUserId = tempUserId;
+        this.email = email;
+        this.name = name;
+        this.providerType = providerType;
+        this.profileImage = profileImage;
+    }
 }

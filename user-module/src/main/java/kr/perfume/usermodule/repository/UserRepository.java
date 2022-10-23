@@ -2,7 +2,7 @@ package kr.perfume.usermodule.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import kr.perfume.usermodule.entity.User;
+import kr.perfume.commonmodule.entity.user.User;
 
 import java.util.Optional;
 

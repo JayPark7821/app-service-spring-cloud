@@ -4,13 +4,15 @@ import kr.perfume.authmodule.Repository.PreJoinUserRedisRepository;
 import kr.perfume.authmodule.auth.verify.LocalVerifier;
 import kr.perfume.authmodule.dto.request.JoinRequestDto;
 import kr.perfume.commonmodule.client.UserServiceClient;
-import kr.perfume.authmodule.dto.response.SocialLoginResponseDto;
+import kr.perfume.commonmodule.dto.ApiResponse;
+import kr.perfume.commonmodule.dto.SocialLoginResponseDto;
 import kr.perfume.authmodule.entity.PreJoinUser;
 import kr.perfume.commonmodule.dto.UserDto;
 import kr.perfume.commonmodule.enums.ErrorCode;
 import kr.perfume.commonmodule.enums.ProviderType;
 import kr.perfume.authmodule.auth.userInfo.OAuth2UserInfo;
 import kr.perfume.authmodule.auth.verify.GoogleVerifier;
+import kr.perfume.commonmodule.enums.RoleType;
 import kr.perfume.commonmodule.exception.PerfumeApplicationException;
 import lombok.RequiredArgsConstructor;
 
@@ -46,11 +48,11 @@ public class AuthService {
 			return genLoginUserDto(request, savedUser);
 		} else {
 			PreJoinUser preJoinUser = savePreJoinUser(userInfo, provider);
-			return new SocialLoginResponseDto(preJoinUser);
+			return preJoinUser.toSocialLoginResponseDto();
 		}
 	}
 
-	public Long join(JoinRequestDto requestDto, HttpServletRequest request) {
+	public SocialLoginResponseDto join(JoinRequestDto requestDto, HttpServletRequest request) {
 		if (userServiceClient.getUserByEmail(requestDto.getEmail()).getData() != null) {
 			throw new PerfumeApplicationException(ErrorCode.USER_ALREADY_JOINED);
 		}
@@ -62,7 +64,21 @@ public class AuthService {
 			throw new PerfumeApplicationException(ErrorCode.INVALID_JOIN_DATA);
 		}
 
-		return null;
+		UserDto user = UserDto.builder()
+			.userId(preJoinUser.getUserId())
+			.email(preJoinUser.getEmail())
+			.name(preJoinUser.getUsername())
+			.profileImage(preJoinUser.getProfileImageUrl())
+			.providerType(preJoinUser.getProviderType())
+			.password(generateTempPw())
+			.build();
+
+		if (userServiceClient.join(user).getCode() == HttpStatus.CREATED.value()) {
+			return new SocialLoginResponseDto(user, "access-token", "refresh-token");
+		} else {
+			throw new PerfumeApplicationException(ErrorCode.INTERNAL_SERVER_ERROR);
+		}
+
 
 	}
 
