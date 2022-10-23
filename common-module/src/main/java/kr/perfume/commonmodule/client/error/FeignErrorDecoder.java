@@ -3,7 +3,7 @@ package kr.perfume.commonmodule.client.error;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import feign.Response;
 import feign.codec.ErrorDecoder;
-import kr.perfume.commonmodule.dto.ApiResponse;
+import kr.perfume.commonmodule.dto.common.ApiResponse;
 import kr.perfume.commonmodule.exception.PerfumeApplicationException;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;

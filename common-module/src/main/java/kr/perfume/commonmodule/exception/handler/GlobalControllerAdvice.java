@@ -1,7 +1,6 @@
 package kr.perfume.commonmodule.exception.handler;
 
-import kr.perfume.commonmodule.dto.ApiResponse;
-import kr.perfume.commonmodule.enums.ErrorCode;
+import kr.perfume.commonmodule.dto.common.ApiResponse;
 import kr.perfume.commonmodule.exception.PerfumeApplicationException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

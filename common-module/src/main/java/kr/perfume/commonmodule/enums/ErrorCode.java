@@ -14,7 +14,8 @@ public enum ErrorCode {
     NOT_AVAILABLE_YET(HttpStatus.BAD_REQUEST,"Not available yet" ),
     INVALID_PROVIDER_TYPE(HttpStatus.BAD_REQUEST,"Invalid Provider Type" ),
     USER_ALREADY_JOINED(HttpStatus.NOT_ACCEPTABLE,"이미 가입된 회원입니다." ),
-    INVALID_JOIN_DATA(HttpStatus.BAD_REQUEST,"잘못된 가입정보 입니다." );
+    INVALID_JOIN_DATA(HttpStatus.BAD_REQUEST,"잘못된 가입정보 입니다." ),
+    FRAGRANCE_NOT_FOUND(HttpStatus.BAD_REQUEST, "향 정보 오류입니다." );
 
 
     private HttpStatus status;

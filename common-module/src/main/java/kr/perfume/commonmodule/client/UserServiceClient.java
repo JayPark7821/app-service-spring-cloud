@@ -1,13 +1,13 @@
 package kr.perfume.commonmodule.client;
 
-import kr.perfume.commonmodule.dto.ApiResponse;
+import kr.perfume.commonmodule.dto.common.ApiResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import kr.perfume.commonmodule.dto.UserDto;
+import kr.perfume.commonmodule.dto.user.UserDto;
 
 @FeignClient(name = "user-service")
 public interface UserServiceClient {
