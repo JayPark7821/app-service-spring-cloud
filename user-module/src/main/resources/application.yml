@@ -28,7 +28,10 @@ spring:
     url: jdbc:h2:mem:testdb
     username: sa
     password:
-
+  redis:
+    host:
+    port:
+    password:
 management:
   endpoints:
     web:

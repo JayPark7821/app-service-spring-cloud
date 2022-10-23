@@ -16,6 +16,7 @@ import com.sun.istack.NotNull;
 import kr.perfume.commonmodule.dto.UserDto;
 import kr.perfume.commonmodule.enums.ProviderType;
 import kr.perfume.commonmodule.enums.RoleType;
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,7 +25,7 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Table(name = "user_table")
 @ToString

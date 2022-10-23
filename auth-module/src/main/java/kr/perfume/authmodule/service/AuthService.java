@@ -4,7 +4,6 @@ import kr.perfume.authmodule.Repository.PreJoinUserRedisRepository;
 import kr.perfume.authmodule.auth.verify.LocalVerifier;
 import kr.perfume.authmodule.dto.request.JoinRequestDto;
 import kr.perfume.commonmodule.client.UserServiceClient;
-import kr.perfume.commonmodule.dto.ApiResponse;
 import kr.perfume.commonmodule.dto.SocialLoginResponseDto;
 import kr.perfume.authmodule.entity.PreJoinUser;
 import kr.perfume.commonmodule.dto.UserDto;
@@ -12,7 +11,6 @@ import kr.perfume.commonmodule.enums.ErrorCode;
 import kr.perfume.commonmodule.enums.ProviderType;
 import kr.perfume.authmodule.auth.userInfo.OAuth2UserInfo;
 import kr.perfume.authmodule.auth.verify.GoogleVerifier;
-import kr.perfume.commonmodule.enums.RoleType;
 import kr.perfume.commonmodule.exception.PerfumeApplicationException;
 import lombok.RequiredArgsConstructor;
 
@@ -78,8 +76,6 @@ public class AuthService {
 		} else {
 			throw new PerfumeApplicationException(ErrorCode.INTERNAL_SERVER_ERROR);
 		}
-
-
 	}
 
 	private PreJoinUser savePreJoinUser(OAuth2UserInfo userInfo, ProviderType providerType) {
@@ -124,10 +120,7 @@ public class AuthService {
 	}
 
 	private String generateTempPw() {
-		String uuid = UUID.randomUUID().toString();
-		String initialPw = passwordEncoder.encode(uuid);
-		return initialPw;
-
+		return passwordEncoder.encode(UUID.randomUUID().toString());
 	}
 
 }
