@@ -1,4 +1,4 @@
-package kr.perfume.commonmodule.dto;
+package kr.perfume.commonmodule.dto.common;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import kr.perfume.commonmodule.enums.ErrorCode;

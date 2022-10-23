@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
-import kr.perfume.commonmodule.dto.UserDto;
+import kr.perfume.commonmodule.dto.user.UserDto;
 import kr.perfume.commonmodule.enums.ProviderType;
 import kr.perfume.commonmodule.enums.RoleType;
 import lombok.AccessLevel;

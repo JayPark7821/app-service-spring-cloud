@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import kr.perfume.commonmodule.dto.perfume.fragrance.FragranceSaveDto;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;

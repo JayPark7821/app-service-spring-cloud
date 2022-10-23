@@ -1,8 +1,8 @@
-package kr.perfume.commonmodule.dto;
+package kr.perfume.commonmodule.dto.auth;
 
+import kr.perfume.commonmodule.dto.user.UserDto;
 import kr.perfume.commonmodule.enums.ProviderType;
 import kr.perfume.commonmodule.enums.RoleType;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

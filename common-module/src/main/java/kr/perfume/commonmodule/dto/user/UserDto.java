@@ -1,4 +1,4 @@
-package kr.perfume.commonmodule.dto;
+package kr.perfume.commonmodule.dto.user;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

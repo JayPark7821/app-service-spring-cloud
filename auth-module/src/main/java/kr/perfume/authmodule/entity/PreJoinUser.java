@@ -1,9 +1,8 @@
 package kr.perfume.authmodule.entity;
 
 import kr.perfume.authmodule.auth.userInfo.OAuth2UserInfo;
-import kr.perfume.commonmodule.dto.SocialLoginResponseDto;
+import kr.perfume.commonmodule.dto.auth.SocialLoginResponseDto;
 import kr.perfume.commonmodule.enums.ProviderType;
-import kr.perfume.commonmodule.enums.RoleType;
 import lombok.*;
 
 import javax.persistence.*;

@@ -1,9 +1,9 @@
 package kr.perfume.authmodule.contorller;
 
 import kr.perfume.authmodule.dto.request.JoinRequestDto;
-import kr.perfume.commonmodule.dto.SocialLoginResponseDto;
+import kr.perfume.commonmodule.dto.auth.SocialLoginResponseDto;
 import kr.perfume.authmodule.service.AuthService;
-import kr.perfume.commonmodule.dto.ApiResponse;
+import kr.perfume.commonmodule.dto.common.ApiResponse;
 import kr.perfume.commonmodule.exception.PerfumeApplicationException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

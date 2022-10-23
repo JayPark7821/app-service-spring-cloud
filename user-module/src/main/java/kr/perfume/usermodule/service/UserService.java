@@ -1,6 +1,6 @@
 package kr.perfume.usermodule.service;
 
-import kr.perfume.commonmodule.dto.UserDto;
+import kr.perfume.commonmodule.dto.user.UserDto;
 import kr.perfume.commonmodule.entity.user.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
