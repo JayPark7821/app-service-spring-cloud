@@ -1,6 +1,7 @@
 package kr.perfume.authmodule.service;
 
 import kr.perfume.authmodule.Repository.PreJoinUserRedisRepository;
+import kr.perfume.authmodule.auth.verify.AppleVerifier;
 import kr.perfume.authmodule.auth.verify.LocalVerifier;
 import kr.perfume.authmodule.dto.request.JoinRequestDto;
 import kr.perfume.commonmodule.client.UserServiceClient;
@@ -30,6 +31,7 @@ public class AuthService {
 
 	private final PreJoinUserRedisRepository preJoinUserRedisRepository;
 	private final GoogleVerifier googleVerifier;
+	private final AppleVerifier appleVerifier;
 	private final LocalVerifier localVerifier;
 	private final BCryptPasswordEncoder passwordEncoder;
 	private final UserServiceClient userServiceClient;
@@ -111,7 +113,7 @@ public class AuthService {
 			case GOOGLE:
 				return googleVerifier.verifyTdToken(token);
 			case APPLE:
-				throw new PerfumeApplicationException(ErrorCode.NOT_AVAILABLE_YET);
+				return appleVerifier.verifyTdToken(token);
 			case LOCAL:
 				return localVerifier.verifyTdToken(token);
 			default:
