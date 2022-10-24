@@ -1,4 +1,4 @@
-package kr.perfume.commonmodule.entity.perfume.category;
+package kr.perfume.perfumemodule.entity.category;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-import kr.perfume.commonmodule.entity.perfume.keyword.KeywordGroup;
+import kr.perfume.perfumemodule.entity.keyword.KeywordGroup;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;

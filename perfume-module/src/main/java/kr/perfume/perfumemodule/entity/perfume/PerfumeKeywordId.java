@@ -1,4 +1,4 @@
-package kr.perfume.commonmodule.entity.perfume.fragrance;
+package kr.perfume.perfumemodule.entity.perfume;
 
 import java.io.Serializable;
 
@@ -10,10 +10,10 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class FragranceGroupId implements Serializable {
+public class PerfumeKeywordId implements Serializable{
 
     @EqualsAndHashCode.Include
     private Long perfume;
     @EqualsAndHashCode.Include
-    private Long fragrance;
+    private Long keywordMaster;
 }

@@ -1,4 +1,4 @@
-package kr.perfume.commonmodule.entity.perfume.category;
+package kr.perfume.perfumemodule.entity.category;
 
 import java.util.ArrayList;
 import java.util.List;
