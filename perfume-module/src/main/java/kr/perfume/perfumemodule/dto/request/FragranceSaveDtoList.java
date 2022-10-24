@@ -1,4 +1,4 @@
-package kr.perfume.commonmodule.dto.perfume.fragrance;
+package kr.perfume.perfumemodule.dto.request;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

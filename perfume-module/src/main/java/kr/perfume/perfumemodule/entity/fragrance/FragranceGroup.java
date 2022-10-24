@@ -1,4 +1,4 @@
-package kr.perfume.commonmodule.entity.perfume.fragrance;
+package kr.perfume.perfumemodule.entity.fragrance;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-import kr.perfume.commonmodule.entity.perfume.perfume.Perfume;
+import kr.perfume.perfumemodule.entity.perfume.Perfume;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;

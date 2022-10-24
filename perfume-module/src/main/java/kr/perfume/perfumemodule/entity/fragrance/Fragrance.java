@@ -1,4 +1,4 @@
-package kr.perfume.commonmodule.entity.perfume.fragrance;
+package kr.perfume.perfumemodule.entity.fragrance;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import kr.perfume.commonmodule.dto.perfume.fragrance.FragranceSaveDto;
+import kr.perfume.perfumemodule.dto.request.FragranceSaveDto;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;

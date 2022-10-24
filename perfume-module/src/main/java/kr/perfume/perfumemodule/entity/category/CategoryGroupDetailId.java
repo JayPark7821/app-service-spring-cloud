@@ -1,4 +1,4 @@
-package kr.perfume.commonmodule.entity.perfume.perfume;
+package kr.perfume.perfumemodule.entity.category;
 
 import java.io.Serializable;
 
@@ -7,13 +7,14 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class PerfumeKeywordId implements Serializable{
+public class CategoryGroupDetailId implements Serializable {
 
     @EqualsAndHashCode.Include
-    private Long perfume;
+    private Long category;
     @EqualsAndHashCode.Include
-    private Long keywordMaster;
+    private Long categoryGroup;
+
 }

@@ -1,4 +1,4 @@
-package kr.perfume.commonmodule.entity.perfume.keyword;
+package kr.perfume.perfumemodule.entity.keyword;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -40,9 +40,9 @@ public class KeywordMaster {
         this.keywordType = keywordType;
     }
 
-    public void update(KeywordSaveRequestDto keywordSaveRequestDto) {
-        this.name = keywordSaveRequestDto.getName();
-        this.description = keywordSaveRequestDto.getDesc();
-        this.keywordType = keywordSaveRequestDto.getKeywordType();
-    }
+//    public void update(KeywordSaveRequestDto keywordSaveRequestDto) {
+//        this.name = keywordSaveRequestDto.getName();
+//        this.description = keywordSaveRequestDto.getDesc();
+//        this.keywordType = keywordSaveRequestDto.getKeywordType();
+//    }
 }

@@ -1,4 +1,4 @@
-package kr.perfume.commonmodule.entity.perfume.perfume;
+package kr.perfume.perfumemodule.entity.perfume;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-import kr.perfume.commonmodule.entity.perfume.fragrance.FragranceGroup;
+import kr.perfume.perfumemodule.entity.fragrance.FragranceGroup;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -82,27 +82,27 @@ public class Perfume {
         this.setKeyword(perfumeKeyword);
     }
 
-    public void update(PerfumeSaveDto perfumeSaveDto) {
-        this.name = perfumeSaveDto.getName();
-        this.description = perfumeSaveDto.getDescription();
-
-        this.perfumeKeyword.clear();
-        this.fragranceGroup.clear();
-
-        if (perfumeSaveDto.getFragranceGroup() == null) {
-            this.fragranceGroup = new ArrayList<>();
-        } else{
-            for (FragranceGroup fragranceGroup : perfumeSaveDto.getFragranceGroup()) {
-                this.addFragranceGroup(fragranceGroup);
-            }
-        }
-        if (perfumeSaveDto.getKeyword() == null) {
-            this.perfumeKeyword = new ArrayList<>();
-        } else{
-            for (PerfumeKeyword perfumeKeyword : perfumeSaveDto.getKeyword()) {
-                this.addKeyword(perfumeKeyword);
-            }
-        }
-
-    }
+//    public void update(PerfumeSaveDto perfumeSaveDto) {
+//        this.name = perfumeSaveDto.getName();
+//        this.description = perfumeSaveDto.getDescription();
+//
+//        this.perfumeKeyword.clear();
+//        this.fragranceGroup.clear();
+//
+//        if (perfumeSaveDto.getFragranceGroup() == null) {
+//            this.fragranceGroup = new ArrayList<>();
+//        } else{
+//            for (FragranceGroup fragranceGroup : perfumeSaveDto.getFragranceGroup()) {
+//                this.addFragranceGroup(fragranceGroup);
+//            }
+//        }
+//        if (perfumeSaveDto.getKeyword() == null) {
+//            this.perfumeKeyword = new ArrayList<>();
+//        } else{
+//            for (PerfumeKeyword perfumeKeyword : perfumeSaveDto.getKeyword()) {
+//                this.addKeyword(perfumeKeyword);
+//            }
+//        }
+//
+//    }
 }
