@@ -8,7 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication(scanBasePackages = {"kr.perfume.authmodule", "kr.perfume.commonmodule"})
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = {"kr.perfume.commonmodule"})
+@EnableFeignClients(basePackages = {"kr.perfume.commonmodule","kr.perfume.authmodule"} )
 //@EntityScan(basePackages = {"kr.perfume.commonmodule.entity"})
 public class AuthModuleApplication {
 
